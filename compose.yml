@@ -4,6 +4,16 @@ services:
     container_name: windows
     environment:
       VERSION: "11"
+      RAM_SIZE: "8G"  # For 8 GB of RAM
+      CPU_CORES: "4"  # For 4 CPU cores
+      SPICE_CLIPBOARD: "Y"
+      ISO_URL: "https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/archive-virtio/virtio-win-0.1.271-1/virtio-win.iso"
+      DEBUG: "Y"  # Enable debug mode to see QEMU arguments and verify USB tablet configuration
+
+      # Troubleshooting options (uncomment one at a time if mouse still doesn't work):
+      # ARGUMENTS: "-device virtio-vga-gl"  # Force VirtIO GPU with OpenGL (may fix display driver issues)
+      # ARGUMENTS: "-device VGA,vgamem_mb=64"  # Use standard VGA instead (fallback option)
+      # ARGUMENTS: "-device usb-kbd"  # Add USB keyboard device explicitly
     devices:
       - /dev/kvm
       - /dev/net/tun
@@ -15,5 +25,6 @@ services:
       - 3389:3389/udp
     volumes:
       - ./windows:/storage
+      - ./data:/data
     restart: always
     stop_grace_period: 2m
