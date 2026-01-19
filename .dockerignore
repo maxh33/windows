@@ -12,3 +12,30 @@ compose.yaml
 docker-compose.yml
 docker-compose.yaml
 *.md
+
+# Runtime data directories (exclude from Docker build context)
+windows/
+data/
+
+# Claude Code settings
+.claude/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/

@@ -1,1 +1,26 @@
+# Runtime data directories
+windows/
+data/
 
+# Claude Code settings (local only)
+.claude/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
